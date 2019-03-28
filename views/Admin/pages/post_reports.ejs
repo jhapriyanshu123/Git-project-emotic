@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include ../partials/head %>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.solodev.com/assets/pagination/jquery.twbsPagination.js"></script>
+<link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+ <div id="wrapper">
+   <%- include ../partials/sidebar %>
+   <div id="page-wrapper" class="gray-bg">
+     <%- include ../partials/topbar %>
+     <div class="row wrapper border-bottom white-bg page-heading">
+       <div class="col-lg-10">
+        <h2>Admin</h2>
+        <ol class="breadcrumb">
+         <li>
+          <a href="/dashboard">home</a>
+        </li>
+        <li class="active">
+          <strong>Posts</strong>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="wrapper wrapper-content  animated fadeInRight">
+   <div class="row">
+    <div class="col-lg-12">
+     <div class="ibox float-e-margins">
+      <div class="ibox-title">
+       <h5 style="color:#1F7FAD;">Posts </h5>
+     </div>
+     <div class="ibox-content custm-form-min">
+      <div class="row">
+
+        <form action="/posts" method="get" style="width:92%;">
+          <div class="col-sm-2 col-xs-12">
+           <div class="search input-group">
+             <input type="text" name="post_search" placeholder="Search" class="input-sm form-control" value="<%= post_search %>"> <span class="input-group-btn"></span>
+           </div>
+         </div>    
+         <div class="col-sm-3 col-xs-12">
+           <div class="input-group date" data-provide="datepicker">
+            <input type="text" class="form-control datepicker" readonly name="date_filter" value="<%= date_filter %>">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-th"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-xs-12">
+         <select class="form-control" name="user_filter">
+            <option value="" selected>Select from users</option>
+            <option value="">All</option>
+
+            <% users.forEach(data => { 
+              var selected = '';
+              if(user_filter == data.attributes.id){
+                var selected = 'selected';
+              }
+            %>
+            <option value="<%= data.attributes.id %>" <%= selected %>> <%= data.attributes.full_name %> </option>
+            <% }); %>
+
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-sm btn-primary go-custom" style="background-color:#F26101 ;border-color:#F26101 ;"> Go</button>
+      </form>    
+               
+
+      <button id="export">Export</button>
+    </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+     <thead>
+      <tr>
+       <th>Id</th>
+       <th>Title</th>
+       <th>Published on</th>
+       <th>View</th>
+     </tr>
+   </thead>
+   <tbody>
+    <%  posts.forEach(function(data, index) { %>
+
+    <tr>
+     <td><%= data.attributes.id %></td>
+     <td><%= data.attributes.title %></td>
+     <td id="date-time">
+      <%= dateFormat(data.attributes.created_at) %></td>
+      <td><a href="/view-post?post_id=<%= data.attributes.id %>">
+        <i class="fa fa-eye" aria-hidden="true"></i>
+      </a> 
+    </td>
+  </tr>
+  <% }); %> 
+</tbody>
+<tfoot>
+  <tr>
+   <td colspan="12">
+    <ul class="pagination pull-right">
+    <% for(var i = 1; i <= pages ; i++){ %>
+	 <ul id="pagination-demo" class="pagination-lg "></ul>
+   <% var active = ''; if(i == page){ active = 'active';} %>
+      <li class="page-item <%= active %>">
+        <a class="page-link" href="http://52.35.47.59:3000/posts?page=<%=i%>"><%= i %></a>
+      </li>
+    <% } %>  
+    </ul>
+  </td>
+
+</tr>
+</tfoot>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<%- include ../partials/footer %>
+</div>
+</div>
+<%- include ../partials/script %>
+
+
+<script>
+  $.fn.datepicker.defaults.format = "yyyy-mm-dd";
+  $('.datepicker').datepicker({
+    autoclose: true
+  });
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('#pagination-demo').twbsPagination({
+totalPages: 5,
+// the current page that show on start
+startPage: 1,
+
+// maximum visible pages
+visiblePages: 5,
+
+initiateStartPageClick: true,
+
+// template for pagination links
+href: false,
+
+// variable name in href template for page number
+hrefVariable: '{{number}}',
+
+// Text labels
+first: 'First',
+prev: 'Previous',
+next: 'Next',
+last: 'Last',
+
+// carousel-style pagination
+loop: false,
+
+// callback function
+onPageClick: function (event, page) {
+   $('.page-active').removeClass('page-active');
+  $('#page'+page).addClass('page-active');
+},
+
+// pagination Classes
+paginationClass: 'pagination',
+nextClass: 'next',
+prevClass: 'prev',
+lastClass: 'last',
+firstClass: 'first',
+pageClass: 'page',
+activeClass: 'active',
+disabledClass: 'disabled'
+
+});
+
+});
+</script>
+
+<script>
+  function download_csv(csv, filename) {
+    var csvFile;
+    var downloadLink;
+
+    // CSV FILE
+    csvFile = new Blob([csv], {type: "text/csv"});
+
+    // Download link
+    downloadLink = document.createElement("a");
+
+    // File name
+    downloadLink.download = filename;
+
+    // We have to create a link to the file
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+
+    // Make sure that the link is not displayed
+    downloadLink.style.display = "none";
+
+    // Add the link to your DOM
+    document.body.appendChild(downloadLink);
+
+    // Lanzamos
+    downloadLink.click();
+  }
+
+  function export_table_to_csv(html, filename) {
+   var csv = [];
+   var rows = document.querySelectorAll("table tr");
+   
+   for (var i = 0; i < rows.length; i++) {
+    var row = [], cols = rows[i].querySelectorAll("td, th");
+
+    for (var j = 0; j < cols.length; j++) 
+      row.push(cols[j].innerText);
+
+    csv.push(row.join(","));      
+  }
+
+    // Download CSV
+    download_csv(csv.join("\n"), filename);
+  }
+
+  document.querySelector("#export").addEventListener("click", function () {
+    var html = document.querySelector("table").outerHTML;
+    export_table_to_csv(html, "table.csv");
+  });
+
+</script>
+
+</body>
+</html>
+

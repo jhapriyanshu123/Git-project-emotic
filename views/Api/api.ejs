@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>APIs</title>
+<link rel="stylesheet" href="/css/bootstrap.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<style>
+</style>
+</head>
+<body class="container" style="margin-bottom: 50px;">
+    <h1 class="text-center">Emotic APIs</h1>
+    <p>
+        <b>Error response structure:</b>
+
+
+    <pre>
+        {
+            "error": "bad_request",
+            "error_description": "The quest is poorly structured or contains invalid data. The email field is required. The password field is required. The device type field is required. The device id field is required. The device token field is required."
+        }
+    </pre>
+    <br>
+    <b>Http request status codes:</b>
+    <br> 200 - Ok
+    <br> 400 - bad_request, when there is missing parameter or there are bad values in a
+    request
+    <br> 401 - unauthorized, when request is made without session_id or format of
+    session_id is invalid
+    <br> 403 - forbidden, when session_id is either expired or invalid
+    <br>
+    </p>
+    <p>Note: * fields are mandatory.</p>
+
+    <b> URL : http://52.35.47.59:3000/api/v1</b>
+
+<% var i = 1 ;%>
+    <div class="panel panel-default">
+           <div class="panel-heading" data-toggle="collapse" data-target="#login">
+               <h4><%= i++%>. Login</h4>
+           </div>
+
+        <div class="panel-body collapse" id="login">
+            <code>
+                <dl class="dl-horizontal">
+                    <dt>url:</dt>
+                    <dd>http://52.35.47.59:3000/api/v1/login</dd>
+                    <dt>Request:</dt>
+                    <dd>POST</dd>
+                </dl>
+            </code>
+            <form target="_new" class="form-horizontal" action="/api/v1/login"
+                method="post" enctype="multipart/form-data">
+
+             <div class="form-group">
+                 <label class="col-sm-4 control-label">phone_number </label>
+                 <div class="col-sm-8">
+                     <input class="form-control" type="text" name="phone_number">
+                 </div>
+                 <label class="col-sm-4 control-label">password </label>
+                 <div class="col-sm-8">
+                     <input class="form-control" type="password" name="password">
+                 </div>
+                 <label class="col-sm-4 control-label">device_type </label>
+                 <div class="col-sm-8">
+                     <input class="form-control" type="text" name="device_type">
+                 </div>
+                 <label class="col-sm-4 control-label">device_token </label>
+                 <div class="col-sm-8">
+                     <input class="form-control" type="text" name="device_token">
+                 </div>
+                 <label class="col-sm-4 control-label">device_id </label>
+                 <div class="col-sm-8">
+                     <input class="form-control" type="text" name="device_id">
+                 </div>
+                 <label class="col-sm-4 control-label">locale</label>
+                 <div class="col-sm-8">
+                     <input class="form-control" type="text" name="locale">
+                 </div>
+                    <div>&nbsp;</div>
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <input class="btn btn-success" type="submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+   </div>
+
+   <div class="panel panel-default">
+          <div class="panel-heading" data-toggle="collapse" data-target="#social-login">
+              <h4><%= i++%>. Social Login</h4>
+          </div>
+
+       <div class="panel-body collapse" id="social-login">
+           <code>
+               <dl class="dl-horizontal">
+                   <dt>url:</dt>
+                   <dd>http://52.35.47.59:3000/api/v1/social-login</dd>
+                   <dt>Request:</dt>
+                   <dd>POST</dd>
+               </dl>
+           </code>
+           <form target="_new" class="form-horizontal" action="/api/v1/social-login"
+               method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">email </label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="email">
+                </div>
+                <label class="col-sm-4 control-label">full_name </label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="full_name">
+                </div>
+                <label class="col-sm-4 control-label">image </label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="image">
+                </div>
+                <label class="col-sm-4 control-label">facebook_id </label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="facebook_id">
+                </div>
+                <label class="col-sm-4 control-label">google_id </label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="google_id">
+                </div>
+                <label class="col-sm-4 control-label">device_type </label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="device_type">
+                </div>
+                <label class="col-sm-4 control-label">device_token </label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="device_token">
+                </div>
+                <label class="col-sm-4 control-label">device_id </label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="device_id">
+                </div>
+                <label class="col-sm-4 control-label">locale</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="text" name="locale">
+                </div>
+                   <div>&nbsp;</div>
+                   <div class="col-sm-8 col-sm-offset-2">
+                       <input class="btn btn-success" type="submit">
+                   </div>
+               </div>
+           </form>
+       </div>
+  </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-target="#user-register">
+                <h4><%= i++%>.  User Signup</h4>
+            </div>
+            <div class="panel-body collapse" id="user-register">
+                <code>
+                    <dl class="dl-horizontal">
+                        <dt>url:</dt>
+                        <dd>http://52.35.47.59:3000/api/v1/signup</dd>
+                        <dt>Request:</dt>
+                        <dd>POST</dd>
+                    </dl>
+                </code>
+                <form target="_new" class="form-horizontal" action="/api/v1/signup"
+                      enctype="multipart/form-data" method="post">
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">email*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="email">
+                        </div>
+                        <label class="col-sm-4 control-label">full_name*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="full_name">
+                        </div>
+                        <label class="col-sm-4 control-label">username*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="username">
+                        </div>
+                        <label class="col-sm-4 control-label">password*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="password" name="password">
+                        </div>
+                        <label class="col-sm-4 control-label">country*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="country">
+                        </div>
+                        <label class="col-sm-4 control-label">city*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="city">
+                        </div>
+                        <label class="col-sm-4 control-label">country_code*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="country_code">
+                        </div>
+                        <label class="col-sm-4 control-label">phone_number*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="phone_number">
+                        </div>
+                        <label class="col-sm-4 control-label">age*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="age">
+                        </div>
+                        <label class="col-sm-4 control-label">image</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="file" name="image">
+                        </div>
+                        <label class="col-sm-4 control-label">device_type</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="device_type">
+                        </div>
+                        <label class="col-sm-4 control-label">device_id</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="device_id">
+                        </div>
+                        <label class="col-sm-4 control-label">device_token</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="device_token">
+                        </div>
+                       <label class="col-sm-4 control-label">locale</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="locale">
+                        </div>
+                        <div>&nbsp;</div>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input class="btn btn-success" type="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+  <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-target="#send-otp">
+                <h4><%= i++%>.  Send otp</h4>
+            </div>
+            <div class="panel-body collapse" id="send-otp">
+                <code>
+                    <dl class="dl-horizontal">
+                        <dt>url:</dt>
+                        <dd>http://52.35.47.59:3000/api/v1/send-otp</dd>
+                        <dt>Request:</dt>
+                        <dd>POST</dd>
+                    </dl>
+                </code>
+                <form target="_new" class="form-horizontal" action="/api/v1/send-otp"
+                      enctype="multipart/form-data" method="post">
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">phone_number*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="phone_number">
+                        </div>
+                       <label class="col-sm-4 control-label">locale</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="locale">
+                        </div>
+                        <div>&nbsp;</div>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input class="btn btn-success" type="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+  <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-target="#verify-otp">
+                <h4><%= i++%>.  Verify otp</h4>
+            </div>
+            <div class="panel-body collapse" id="verify-otp">
+                <code>
+                    <dl class="dl-horizontal">
+                        <dt>url:</dt>
+                        <dd>http://52.35.47.59:3000/api/v1/verify-otp</dd>
+                        <dt>Request:</dt>
+                        <dd>POST</dd>
+                    </dl>
+                </code>
+                <form target="_new" class="form-horizontal" action="/api/v1/verify-otp"
+                      enctype="multipart/form-data" method="post">
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">phone_number*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="phone_number">
+                        </div>
+                        <label class="col-sm-4 control-label">otp*</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="otp">
+                        </div>
+                       <label class="col-sm-4 control-label">locale</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="locale">
+                        </div>
+                        <div>&nbsp;</div>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input class="btn btn-success" type="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-target="#edit-profile">
+                <h4><%= i++%>.  Edit Profile</h4>
+            </div>
+            <div class="panel-body collapse" id="edit-profile">
+                <code>
+                    <dl class="dl-horizontal">
+                        <dt>url:</dt>
+                        <dd>http://52.35.47.59:3000/api/v1/edit-profile</dd>
+                        <dt>Request:</dt>
+                        <dd>POST</dd>
+                    </dl>
+                </code>
+                <form target="_new" class="form-horizontal" action="/api/v1/edit-profile"
+                      enctype="multipart/form-data" method="post">
+
+                    <div class="form-group">
+                       <label class="col-sm-4 control-label">session_id</label>
+                       <div class="col-sm-8">
+                           <input class="form-control" type="text" name="session_id">
+                       </div>
+                       <label class="col-sm-4 control-label">username</label>
+                       <div class="col-sm-8">
+                           <input class="form-control" type="text" name="username">
+                       </div>
+                        <label class="col-sm-4 control-label">email</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="email">
+                        </div>
+                        <label class="col-sm-4 control-label">full_name</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="full_name">
+                        </div>
+                        <label class="col-sm-4 control-label">country</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="country">
+                        </div>
+                        <label class="col-sm-4 control-label">country_code</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="country_code">
+                        </div>                       
+                        <label class="col-sm-4 control-label">phone_number</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="phone_number">
+                        </div>
+                        <label class="col-sm-4 control-label">image</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="file" name="image">
+                        </div>
+                        <label class="col-sm-4 control-label">city</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="city">
+                        </div>
+                        <label class="col-sm-4 control-label">age</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="age">
+                        </div>
+                        <label class="col-sm-4 control-label">device_type</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="device_type">
+                        </div>
+                        <label class="col-sm-4 control-label">device_id</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="device_id">
+                        </div>
+                        <label class="col-sm-4 control-label">device_token</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="device_token">
+                        </div>
+                       <label class="col-sm-4 control-label">locale</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="locale">
+                        </div>
+                        <div>&nbsp;</div>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input class="btn btn-success" type="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+              <div class="panel-heading" data-toggle="collapse" data-target="#get-moods">
+                  <h4><%= i++%>. Get moods</h4>
+              </div>
+
+            <div class="panel-body collapse" id="get-moods">
+                <code>
+                   <dl class="dl-horizontal">
+                        <dt>url:</dt>
+                        <dd>http://52.35.47.59:3000/api/v1/get-moods</dd>
+                        <dt>Request:</dt>
+                        <dd>POST</dd>
+                   </dl>
+                </code>
+                <form target="_new" class="form-horizontal" action="/api/v1/get-moods"
+                   method="get">
+
+                 <div class="form-group">
+                     <label class="col-sm-4 control-label">locale </label>
+                     <div class="col-sm-8">
+                         <input class="form-control" type="text" name="locale">
+                     </div>
+                        <div>&nbsp;</div>
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input class="btn btn-success" type="submit">
+                        </div>
+                   </div>
+                </form>
+            </div>
+        </div>
+
+<div class="panel panel-default">
+      <div class="panel-heading" data-toggle="collapse" data-target="#change-password">
+          <h4><%= i++%>. Change Password</h4>
+      </div>
+
+    <div class="panel-body collapse" id="change-password">
+        <code>
+           <dl class="dl-horizontal">
+                <dt>url:</dt>
+                <dd>http://52.35.47.59:3000/api/v1/change-password</dd>
+                <dt>Request:</dt>
+                <dd>POST</dd>
+           </dl>
+        </code>
+        <form target="_new" class="form-horizontal" action="/api/v1/change-password"
+           method="post" enctype="multipart/form-data">
+
+         <div class="form-group">
+             <label class="col-sm-4 control-label">session_id </label>
+             <div class="col-sm-8">
+                 <input class="form-control" type="text" name="session_id">
+             </div>
+             <label class="col-sm-4 control-label">old_password </label>
+             <div class="col-sm-8">
+                 <input class="form-control" type="password" name="old_password">
+             </div>
+             <label class="col-sm-4 control-label">new_password </label>
+             <div class="col-sm-8">
+                 <input class="form-control" type="password" name="new_password">
+             </div>
+                <div>&nbsp;</div>
+                <div class="col-sm-8 col-sm-offset-2">
+                    <input class="btn btn-success" type="submit">
+                </div>
+           </div>
+        </form>
+    </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#user-forgot-password">
+     <h4><%= i++%>.  User Forgot Password</h4>
+  </div>
+  <div class="panel-body collapse" id="user-forgot-password">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/forgot-password</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/forgot-password" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">email*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="email">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#block-user">
+     <h4><%= i++%>.  Block User</h4>
+  </div>
+  <div class="panel-body collapse" id="block-user">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/block-user</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/block-user" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">user_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="user_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-blocked-user">
+     <h4><%= i++%>.  Get Blocked User</h4>
+  </div>
+  <div class="panel-body collapse" id="get-blocked-user">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-blocked-user</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-blocked-user" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#update-mood">
+     <h4><%= i++%>.  User update Mood</h4>
+  </div>
+  <div class="panel-body collapse" id="update-mood">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/update-mood</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/update-mood" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">mood_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="mood_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-feed">
+     <h4><%= i++%>.  Get home feed</h4>
+  </div>
+  <div class="panel-body collapse" id="get-feed">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-feed</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-feed" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">type(1 for global , 2 for friends, 3 for mood)</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="type">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">page</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="page">
+              </div>
+              <label class="col-sm-4 control-label">limit</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="limit">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-posts">
+     <h4><%= i++%>.  Get posts</h4>
+  </div>
+  <div class="panel-body collapse" id="get-posts">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-posts</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-posts" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">page</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="page">
+              </div>
+              <label class="col-sm-4 control-label">limit</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="limit">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-user-profile">
+     <h4><%= i++%>.  Get User Profile</h4>
+  </div>
+  <div class="panel-body collapse" id="get-user-profile">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-user-profile</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-user-profile" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">user_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="user_id">
+              </div>
+              <label class="col-sm-4 control-label">page</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="page">
+              </div>
+              <label class="col-sm-4 control-label">limit</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="limit">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-gifs">
+     <h4><%= i++%>.  Get Gifs</h4>
+  </div>
+  <div class="panel-body collapse" id="get-gifs">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-gifs</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-gifs" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">keyword</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="keyword">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-youtube-videos">
+     <h4><%= i++%>.  Get Youtube Videos</h4>
+  </div>
+  <div class="panel-body collapse" id="get-youtube-videos">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-youtube-videos</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-youtube-videos" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">keyword</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="keyword">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#add-post">
+     <h4><%= i++%>.  Add new post</h4>
+  </div>
+  <div class="panel-body collapse" id="add-post">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/add-post</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/add-post" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">title*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="title">
+              </div>
+              <label class="col-sm-4 control-label">description</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="description">
+              </div>
+              <label class="col-sm-4 control-label">youtube_video_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="youtube_video_id">
+              </div>
+              <label class="col-sm-4 control-label">youtube_video_title</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="youtube_video_title">
+              </div>
+              <label class="col-sm-4 control-label">youtube_video_description</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="youtube_video_description">
+              </div>
+              <label class="col-sm-4 control-label">youtube_video_thumb</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="youtube_video_thumb">
+              </div>
+              <label class="col-sm-4 control-label">media</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="file" name="media">
+              </div>
+              <label class="col-sm-4 control-label">video_thumb</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="file" name="video_thumb">
+              </div>
+              <label class="col-sm-4 control-label">gif_image_url</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="gif_image_url">
+              </div>
+              <label class="col-sm-4 control-label">mood_id*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="mood_id">
+              </div>
+              <label class="col-sm-4 control-label">type*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="type">
+              </div>
+              <label class="col-sm-4 control-label">post_duration(1=permanent,2=5 days)*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_duration">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-post-likes">
+     <h4><%= i++%>.  Get Post Likes</h4>
+  </div>
+  <div class="panel-body collapse" id="get-post-likes">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-post-likes</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-post-likes" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-post-comments">
+     <h4><%= i++%>.  Get Post Comments</h4>
+  </div>
+  <div class="panel-body collapse" id="get-post-comments">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-post-comments</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-post-comments" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-post">
+     <h4><%= i++%>.  Get Post</h4>
+  </div>
+  <div class="panel-body collapse" id="get-post">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-post</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-post" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#like-post">
+     <h4><%= i++%>.  Like a post</h4>
+  </div>
+  <div class="panel-body collapse" id="like-post">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/like-post</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/like-post" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#comment-on-post">
+     <h4><%= i++%>. Comment on a post</h4>
+  </div>
+  <div class="panel-body collapse" id="comment-on-post">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/comment-on-post</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/comment-on-post" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">comment*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="comment">
+              </div>
+              <label class="col-sm-4 control-label">timezone*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#view-video">
+     <h4><%= i++%>.  View a video</h4>
+  </div>
+  <div class="panel-body collapse" id="view-video">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/view-video</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/view-video" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#share-post">
+     <h4><%= i++%>.  Share a post</h4>
+  </div>
+  <div class="panel-body collapse" id="share-post">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/share-post</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/share-post" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">user_id*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="user_id">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#hide-post">
+     <h4><%= i++%>.  Hide post</h4>
+  </div>
+  <div class="panel-body collapse" id="hide-post">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/hide-post</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/hide-post" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#report-post">
+     <h4><%= i++%>.  Report a post</h4>
+  </div>
+  <div class="panel-body collapse" id="report-post">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/report-post</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/report-post" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#delete-post">
+     <h4><%= i++%>.  Delete a post</h4>
+  </div>
+  <div class="panel-body collapse" id="delete-post">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/delete-post</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/delete-post" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">post_id*</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="post_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#search-users">
+     <h4><%= i++%>. Search users</h4>
+  </div>
+  <div class="panel-body collapse" id="search-users">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/search-users</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/search-users" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">keyword</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="keyword">
+              </div>
+              <label class="col-sm-4 control-label">type(1= home search , 2 = followers, 3 = following)</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="type">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#send-follow-request">
+     <h4><%= i++%>. Send Follow Request</h4>
+  </div>
+  <div class="panel-body collapse" id="send-follow-request">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/send-follow-request</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/send-follow-request" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">user_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="user_id">
+              </div>
+              <label class="col-sm-4 control-label">status <br>(Send request : 1 ,Unfollow request : 2,Cancel request : 3,Accept Request : 4,Reject : 5)</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="status">
+              </div>
+   <!--            <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div> -->
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<!-- <div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#update-request-status">
+     <h4><%= i++%>. Update Follow Request Status</h4>
+  </div>
+  <div class="panel-body collapse" id="update-request-status">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/update-request-status</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/update-request-status" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">user_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="user_id">
+              </div>
+              <label class="col-sm-4 control-label">status(2 = Reject, 3 = Accept)</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="status">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div> -->
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#fetch-follow-request">
+     <h4><%= i++%>. Fetch Follow Request</h4>
+  </div>
+  <div class="panel-body collapse" id="fetch-follow-request">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/fetch-follow-request</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/fetch-follow-request" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-followers">
+     <h4><%= i++%>. Get Followers</h4>
+  </div>
+  <div class="panel-body collapse" id="get-followers">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-followers</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-followers" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">type(1:followers, 2:following)</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="type">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<!-- <div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-following">
+     <h4><%= i++%>. Get Following</h4>
+  </div>
+  <div class="panel-body collapse" id="get-following">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-following</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-following" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div> -->
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-notifications">
+     <h4><%= i++%>. Get Notifications</h4>
+  </div>
+  <div class="panel-body collapse" id="get-notifications">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-notifications</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-notifications" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-group">
+     <h4><%= i++%>. Get Group</h4>
+  </div>
+  <div class="panel-body collapse" id="get-group">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-group</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-group" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">group_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="group_id">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#create-group">
+     <h4><%= i++%>.  Create group</h4>
+  </div>
+  <div class="panel-body collapse" id="create-group">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/create-group</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/create-group" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">group_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="group_id">
+              </div>
+              <label class="col-sm-4 control-label">name</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="name">
+              </div>
+              <label class="col-sm-4 control-label">group_members</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="group_members">
+              </div>
+              <label class="col-sm-4 control-label">image</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="file" name="image">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#update-group-members">
+     <h4><%= i++%>.  Update group members</h4>
+  </div>
+  <div class="panel-body collapse" id="update-group-members">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/update-group-members</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/update-group-members" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">group_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="group_id">
+              </div>
+              <label class="col-sm-4 control-label">group_members</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="group_members">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#leave-group">
+     <h4><%= i++%>.  Leave group </h4>
+  </div>
+  <div class="panel-body collapse" id="leave-group">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/leave-group</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>s
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/leave-group" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">group_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="group_id">
+              </div>              
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#group-notification-status">
+     <h4><%= i++%>.  Update group notification status </h4>
+  </div>
+  <div class="panel-body collapse" id="group-notification-status">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/group-notification-status</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/group-notification-status" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">group_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="group_id">
+              </div>   
+              <label class="col-sm-4 control-label">status(0=disable,1=enable)</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="status">
+              </div>              
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#initialize-conversation">
+     <h4><%= i++%>.  Initialize Conversation</h4>
+  </div>
+  <div class="panel-body collapse" id="initialize-conversation">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/initialize-conversation</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/initialize-conversation" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">friend_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="friend_id">
+              </div>  
+              <label class="col-sm-4 control-label">type(1=friend,2=group)</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="type">
+              </div>               
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#conversation-listing">
+     <h4><%= i++%>.  Get Conversation Listing</h4>
+  </div>
+  <div class="panel-body collapse" id="conversation-listing">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/conversation-listing</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/conversation-listing" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#get-conversation-messages">
+     <h4><%= i++%>.  Get Conversation Messages</h4>
+  </div>
+  <div class="panel-body collapse" id="get-conversation-messages">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/get-conversation-messages</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/get-conversation-messages" method="get">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">conversation_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="conversation_id">
+              </div>
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#add-friend-conversation">
+     <h4><%= i++%>.  Add friend to conversation</h4>
+  </div>
+  <div class="panel-body collapse" id="add-friend-conversation">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/add-friend-conversation</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/add-friend-conversation" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">friend_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="friend_id">
+              </div>              
+              <label class="col-sm-4 control-label">conversation_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="conversation_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#upload-chat-image">
+     <h4><%= i++%>. Upload chat image</h4>
+  </div>
+  <div class="panel-body collapse" id="upload-chat-image">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/upload-chat-image</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/upload-chat-image" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">conversation_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="conversation_id">
+              </div>
+              <label class="col-sm-4 control-label">message</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="message">
+              </div>
+              <label class="col-sm-4 control-label">image</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="file" name="image">
+              </div> 
+              <label class="col-sm-4 control-label">message_type</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="message_type">
+              </div> 
+              <label class="col-sm-4 control-label">timezone</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="timezone">
+              </div>                            
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#mute-conversation">
+     <h4><%= i++%>. Mute Conversation</h4>
+  </div>
+  <div class="panel-body collapse" id="mute-conversation">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/mute-conversation</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/mute-conversation" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">conversation_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="conversation_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#clear-chat">
+     <h4><%= i++%>. Clear Chat</h4>
+  </div>
+  <div class="panel-body collapse" id="clear-chat">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/clear-chat</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/clear-chat" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <label class="col-sm-4 control-label">conversation_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="conversation_id">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#delete-account">
+     <h4><%= i++%>.  Delete Account</h4>
+  </div>
+  <div class="panel-body collapse" id="delete-account">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/delete-account</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/delete-account" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <!-- <label class="col-sm-4 control-label">reason_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="reason_id">
+              </div> -->
+              <label class="col-sm-4 control-label">reason</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="reason">
+              </div>
+              <label class="col-sm-4 control-label">locale</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="locale">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#logout">
+     <h4><%= i++%>. Logout</h4>
+  </div>
+  <div class="panel-body collapse" id="logout">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/api/v1/logout</dd>
+              <dt>Request:</dt>
+              <dd>POST</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/api/v1/logout" method="post">
+          <div class="form-group">
+              <label class="col-sm-4 control-label">session_id</label>
+              <div class="col-sm-8">
+                  <input class="form-control" type="text" name="session_id">
+              </div>
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#terms-and-conditions">
+     <h4><%= i++%>. Terms and conditions</h4>
+  </div>
+  <div class="panel-body collapse" id="terms-and-conditions">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/terms-and-conditions</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/terms-and-conditions" method="get">
+          <div class="form-group">
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#privacy-policy">
+     <h4><%= i++%>. Privacy policy </h4>
+  </div>
+  <div class="panel-body collapse" id="privacy-policy">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/privacy-policy</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/privacy-policy" method="get">
+          <div class="form-group">
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" data-toggle="collapse"
+     data-target="#contact-us">
+     <h4><%= i++%>. Contact us </h4>
+  </div>
+  <div class="panel-body collapse" id="contact-us">
+     <code>
+          <dl class="dl-horizontal">
+              <dt>url:</dt>
+              <dd>http://52.35.47.59:3000/contact-us</dd>
+              <dt>Request:</dt>
+              <dd>GET</dd>
+          </dl>
+     </code>
+     <form target="_new" class="form-horizontal"
+          action="/contact-us" method="get">
+          <div class="form-group">
+              <div>&nbsp;</div>
+              <div class="col-sm-8 col-sm-offset-2">
+                  <input class="btn btn-success" type="submit">
+              </div>
+          </div>
+     </form>
+  </div>
+</div>
+
+    <script type="text/javascript" src="/js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</body>
+</html>

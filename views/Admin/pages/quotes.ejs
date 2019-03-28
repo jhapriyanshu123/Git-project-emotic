@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <%- include ../partials/head %>
+</head>
+<body>
+  <div id="wrapper">
+   <%- include ../partials/sidebar %>
+   <div id="page-wrapper" class="gray-bg">
+      <%- include ../partials/topbar %>
+      <div class="row wrapper border-bottom white-bg page-heading">
+         <div class="col-lg-10">
+            <h2>Admin</h2>
+            <ol class="breadcrumb">
+               <li>
+                  <a href="/dashboard">home</a>
+               </li>
+               <li class="active">
+                  <strong>Quotes</strong>
+               </li>
+            </ol>
+         </div>
+      </div>
+      <div class="wrapper wrapper-content  animated fadeInRight">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="ibox float-e-margins">
+                  <div class="ibox-title">
+                     <h5 style="color:#1F7FAD;">Quotes </h5>
+                  </div>
+                  <div class="ibox-content">
+                     <div class="row">
+                        <a href="/add-quote"><button id="export">Add Quotes</button></a>
+                     </div>
+                        
+                        <div class="table-responsive">
+                           <table class="table table-striped">
+                              <thead>
+                                 <tr>
+                                    <th>Id</th>
+                                    <th>Mood</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Quote</th>
+                                    <th></th>
+                                    <th></th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <%  quotes.forEach(function(data, index) { %>
+                                 
+                                 <tr>
+                                    <td><%= data.attributes.id %></td>
+                                    <td><%= fetchMood(data.attributes.mood_id,moods) %></td>
+                                    <td><%= data.attributes.title %></td>
+                                    <td><%= data.attributes.description ? data.attributes.description : '-' %></td>
+                                    <td>
+                                    <img src="https://s3-eu-west-1.amazonaws.com/emotic-mood/Posts/Images/<%= data.attributes.media %>" 
+                                    style="float: left;" class="img-circle emoji" height="30" width="30">                                    
+                                    </td>
+                                    <td>
+                                     <a href="edit-quote?quote_id=<%= data.attributes.id %>" style="color: black;" title="Edit quote">
+                                        <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                     </a>
+                                  </td>
+                                  <td>
+                                    <a href="delete-quote?quote_id=<%= data.attributes.id %>" style="color: black;" title="Delete quote">
+                                       <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                  </td>
+                               </tr>
+                               <% }); %> 
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                 <td colspan="12">
+                                    <ul class="pagination pull-right "></ul>
+                                 </td>
+                              </tr>
+                           </tfoot>
+                        </table>
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <%- include ../partials/footer %>
+   </div>
+</div>
+<%- include ../partials/script %>
+</body>
+</html>
+

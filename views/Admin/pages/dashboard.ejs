@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include ../partials/head %>
+</head>
+<body>
+ <div id="wrapper">
+   <%- include ../partials/sidebar %>
+   <div id="page-wrapper" class="gray-bg">
+    <%- include ../partials/topbar %>
+    <div class="wrapper wrapper-content">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="col-lg-4">
+            <a href="/users">
+              <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                  <span class="label label-danger pull-right">Users</span>
+                  <h5>Users</h5>
+                </div>
+                <div class="ibox-content">
+                  <h1 class="no-margins"> <%= total_users %>  </h1>
+                  <div class="stat-percent font-bold text-success"></div>
+
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4">
+            <a href="/moods">
+              <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                  <span class="label label-danger pull-right">Moods</span>
+                  <h5>Moods</h5>
+                </div>
+                <div class="ibox-content">
+                  <h1 class="no-margins"> <%= total_moods %>  </h1>
+                  <div class="stat-percent font-bold text-success"></div>
+
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-4">
+            <a href="/posts">
+              <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                  <span class="label label-danger pull-right">Posts</span>
+                  <h5>Posts</h5>
+                </div>
+                <div class="ibox-content">
+                  <h1 class="no-margins"> <%= total_posts %>  </h1>
+                  <div class="stat-percent font-bold text-success"></div>
+
+                </div>
+              </div>
+            </a>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+<%- include ../partials/footer %>
+</div>
+</div>
+<%- include ../partials/script %>
+</body>
+</html>
+

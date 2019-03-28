@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <%- include ../partials/head %>
+</head>
+<body>
+  <div id="wrapper">
+   <%- include ../partials/sidebar %>
+   <div id="page-wrapper" class="gray-bg">
+      <%- include ../partials/topbar %>
+      <div class="row wrapper border-bottom white-bg page-heading">
+         <div class="col-lg-10">
+            <h2>Admin</h2>
+            <ol class="breadcrumb">
+               <li>
+                  <a href="/dashboard">home</a>
+               </li>
+               <li>
+                  <a href="/users">Users</a>
+               </li>
+               <li class="active">
+                <strong>User Details</strong>
+             </li>
+          </ol>
+       </div>
+    </div> 
+
+    <div class="wrapper wrapper-content  animated fadeInRight">
+
+      <div class="row">
+         <div class="col-sm-4">
+          <div class="ibox ">
+
+            <div class="ibox-content">
+              <div class="tab-content">
+               <div id="contact-1" class="tab-pane active">
+                  <div class="row m-b-lg">
+
+                    <div class="col-lg-4 ">
+                      <h2>User</h2>
+
+                      <div class="m-b-sm">
+                      <% if(imgType==1){ %>
+                       <%- image %>
+                      <% } else { %> 
+                        <img  class="user-image" src="<%= image %>" style=" width: 250px; height: 250px;">
+                      <% } %>  
+                     </div>
+                     <div class="m-b-sm">
+                        <h2></h2>
+                     </div>
+                  </div>
+
+               </div>
+
+            </div>
+
+
+         </div>
+      </div>
+   </div>
+
+</div>
+<div class="col-sm-8">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Details</h5>
+      <a href="/delete-user?user_id=<%= user.attributes.id %>">
+      <button class="btn btn-danger btn-xs" type="button" name="delete_user" style="float: right;">     
+        Delete user
+      </button>      
+      </a>
+   </div>
+
+   <div class="ibox-content">
+
+      <table class="table" >
+
+         <tbody >
+            <tr >
+              <td style="border-style: none;"><a data-toggle="tab" href="#contact-1" class="client-link"> Full Name: </a></td>
+              <td style="border-style: none;"> <%= user.attributes.full_name %> </td>
+           </tr>
+
+           <tr >
+              <td style="line-height: 2.42857;"><a data-toggle="tab" href="#contact-1" class="client-link"> Username: </a></td>
+              <td style="line-height: 2.42857;"> <%= user.attributes.username %> </td>
+           </tr>
+           <tr>
+              <td style="line-height: 2.42857;"><a data-toggle="tab" href="#contact-1" class="client-link"> Email: </a></td>
+              <td style="line-height: 2.42857;" > <%= user.attributes.email %> </td>
+          </tr>
+
+          <tr>
+           <td ><a data-toggle="tab" href="#contact-1" class="client-link">Phone number: </a></td>
+           <td style="line-height: 2.42857;"> 
+              <span class="badge label label-warning"> <%= user.attributes.phone_number %></span>
+           </td>
+        </tr>
+           <tr>
+              <td style="line-height: 2.42857;"><a data-toggle="tab" href="#contact-1" class="client-link"> Age: </a></td>
+              <td style="line-height: 2.42857;" > <%= user.attributes.age ? user.attributes.age : '-' %> </td>
+          </tr>
+        <tr>
+           <td style="line-height: 2.42857;"><a data-toggle="tab" href="#contact-1" class="client-link">Country:</a></td>
+           <td style="line-height: 2.42857;"> <%= user.attributes.country ? user.attributes.country : '-' %> </td>
+        </tr>
+         <tr>
+              <td style="line-height: 2.42857;"><a data-toggle="tab" href="#contact-1" class="client-link"> City: </a></td>
+              <td style="line-height: 2.42857;" > <%= user.attributes.city ? user.attributes.city : '-' %> </td>
+         </tr>
+         <tr>
+              <td style="line-height: 2.42857;"><a data-toggle="tab" href="#contact-1" class="client-link"> Current Mood: </a></td>
+              <td style="line-height: 2.42857;" > <%= user.attributes.name ? user.attributes.name : '-' %> </td>
+         </tr>
+         <tr>
+              <td style="line-height: 2.42857;"><a data-toggle="tab" href="#contact-1" class="client-link"> Verified: </a></td>
+              <td style="line-height: 2.42857;" > 
+               <form action="/verify-user" method="post" style="margin-top: 15px;">
+                 <input type="hidden" name="user_id" value="<%= user.attributes.id %>">
+                   <% if(user.attributes.is_verified==1){ %>
+                    <button class="btn btn-success btn-xs" type="submit" name="status" value="1">       
+                     Verified
+                    </button> 
+                    <button class="btn btn-default btn-xs " type="submit" name="status" value="0">
+                     Unverify
+                    </button>
+                   <% } else { %>
+                    <button class="btn btn-default btn-xs " type="submit" name="status" value="1">
+                     Verify
+                    </button>                                   
+                    <button class="btn btn-success  btn-xs" type="submit" name="status" value="0">       
+                     Not Verified
+                   <% } %>
+               </form>
+             </td>
+         </tr>         
+         <tr>
+              <td style="line-height: 2.42857;"><a data-toggle="tab" href="#contact-1" class="client-link"> Status: </a></td>
+              <td style="line-height: 2.42857;" > 
+               <form action="/block-user" method="post" style="margin-top: 15px;">
+                 <input type="hidden" name="user_id" value="<%= user.attributes.id %>">
+                   <% if(user.attributes.is_blocked==1){ %>
+                    <button class="btn btn-success btn-xs" type="submit" name="status" value="1">       
+                     Blocked
+                    </button> 
+                    <button class="btn btn-default btn-xs " type="submit" name="status" value="0">
+                     Unblock
+                    </button>
+                   <% } else { %>
+                    <button class="btn btn-default btn-xs " type="submit" name="status" value="1">
+                     Block
+                    </button>                                   
+                    <button class="btn btn-danger  btn-xs" type="submit" name="status" value="0">       
+                     Unblocked
+                   <% } %>
+               </form>
+             </td>
+         </tr>
+     </tbody>
+  </table>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+<%- include ../partials/footer %>
+</div>
+</div>
+<%- include ../partials/script %>
+
+<script type="text/javascript">
+function getImageUrl() {
+  var image = $('.user-image').attr('src');
+  var containsHttp = image.includes('http');
+  var containsHttps = image.includes('https');
+  if (containsHttp === true || containsHttps === true) {
+    var image = image;
+  } else {
+    var image = 'http://52.35.47.59:3000/api/v1/img/Users/' + image;
+  }
+  $('.user-image').attr('src',image);
+}
+window.onload = getImageUrl;
+</script>
+</body>
+</html>

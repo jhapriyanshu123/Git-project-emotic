@@ -1,0 +1,61 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse only-this-page-class" id="menu">
+                 <ul class=" nav nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                            <div class="dropdown profile-element"> <span>
+                          <img src ="admin/img/logo.png" style="width: 151px; margin-top:10px;" class="img-circle">
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo Session::get('user.name') ?> </strong>
+                             </span> <span class="text-muted text-xs block">Admin <b class="caret"></b></span> </span> </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="/change-password">Change Password</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                        Admin
+                        </div>
+                    </li>
+
+        
+                    <% if(url=='/dashboard') { var active = 'active' ;} else { var active = '' ;} %>
+                    <li class=<%= active %>>
+                        <a href="/dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span> </a>
+                    </li>
+
+                    <% if(url=='/users' || url.includes('/view-user') || url.includes('/users')) { var active = 'active' ;} else { var active = '' ;} %>
+                    <li class=<%= active %>>
+                        <a href="/users"><i class="fa fa-user"></i> <span class="nav-label">Users</span></a>
+                    </li>
+
+                    <% if(url=='/posts' || url.includes('/posts') || url.includes('/view-post')) { var active = 'active' ;} else { var active = '' ;} %>
+                    <li class=<%= active %>>
+                        <a href="/posts"><i class="fa fa-user"></i> <span class="nav-label">Posts</span></a>
+                    </li>
+
+                    <% if(url=='/moods' || url.includes('/moods') || url=='/add-mood' || url.includes('/edit-mood')) { var active = 'active' ;} else { var active = '' ;} %>
+                    <li class=<%= active %>>
+                        <a href="/moods"><i class="fa fa-user"></i> <span class="nav-label">Moods</span></a>
+                    </li>
+
+                    <% if(url=='/quotes' || url=='/add-quote' || url.includes('/edit-quote')) { var active = 'active' ;} else { var active = '' ;} %>
+                    <li class=<%= active %>>
+                        <a href="/quotes"><i class="fa fa-user"></i> <span class="nav-label">Quotes</span></a>
+                    </li>
+
+                    <% if(url=='/videos' || url=='/add-video' || url.includes('/edit-video')) { var active = 'active' ;} else { var active = '' ;} %>
+                    <li class=<%= active %>>
+                        <a href="/videos"><i class="fa fa-user"></i> <span class="nav-label">Videos</span></a>
+                    </li>
+
+                    <% if(url=='/broadcast') { var active = 'active' ;} else { var active = '' ;} %>
+                    <li class=<%= active %>>
+                        <a href="/broadcast"><i class="fa fa-user"></i> <span class="nav-label">Broadcast</span></a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>

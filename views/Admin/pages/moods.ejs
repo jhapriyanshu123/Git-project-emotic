@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <%- include ../partials/head %>
+</head>
+<body>
+  <div id="wrapper">
+   <%- include ../partials/sidebar %>
+   <div id="page-wrapper" class="gray-bg">
+      <%- include ../partials/topbar %>
+      <div class="row wrapper border-bottom white-bg page-heading">
+         <div class="col-lg-10">
+            <h2>Admin</h2>
+            <ol class="breadcrumb">
+               <li>
+                  <a href="/dashboard">home</a>
+               </li>
+               <li class="active">
+                  <strong>Moods</strong>
+               </li>
+            </ol>
+         </div>
+      </div>
+      <div class="wrapper wrapper-content  animated fadeInRight">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="ibox float-e-margins">
+                  <div class="ibox-title">
+                     <h5 style="color:#1F7FAD;">Moods </h5>
+                  </div>
+                  <div class="ibox-content">
+                     <div class="row">
+                        <form action="/moods" method="get" role="search">
+                           <input type="text" name="mood_search" id="mood_search" value="">
+                           <input type="submit" value="Go" name="go">
+                        </form>
+                        <a href="/add-mood"><button id="export">Add moods</button></a>
+                     </div>
+                        
+                        <div class="table-responsive">
+                           <table class="table table-striped">
+                              <thead>
+                                 <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Color</th>
+                                    <th>Emoji</th>
+                                    <th></th>
+                                    <th></th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <%  moods.forEach(function(data, index) { %>
+                                 
+                                 <tr>
+                                    <td><%= data.attributes.id %></td>
+                                    <td><%= data.attributes.name %></td>
+                                    <td>
+                                      <hr style="width: 50%; background-color:<%= data.attributes.color %>;height: 5px;">
+                                      
+                                    </td>
+                                    <td>
+                                      <img src="https://s3-eu-west-1.amazonaws.com/emotic-mood/Moods/<%= data.attributes.emoji %>" class="img-circle emoji" height="30" width="30">
+                                    </td>
+                                    <td>
+                                     <a href="edit-mood?mood_id=<%= data.attributes.id %>" style="color: black;" title="Edit emoji">
+                                        <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                     </a>
+                                  </td>
+                                  <td>
+                                    <a href="delete-mood?mood_id=<%= data.attributes.id %>" style="color: black;" title="Edit emoji">
+                                       <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                  </td>
+                               </tr>
+                               <% }); %> 
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                 <td colspan="12">
+                                    <ul class="pagination pull-right "></ul>
+                                 </td>
+                              </tr>
+                           </tfoot>
+                        </table>
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <%- include ../partials/footer %>
+   </div>
+</div>
+<%- include ../partials/script %>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%- include ../partials/head %>
+</head>
+<body>
+ <div id="wrapper">
+   <%- include ../partials/sidebar %>
+  <div id="page-wrapper" class="gray-bg custom-bg">
+   <%- include ../partials/topbar %>
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-lg-10">
+      <h2>Admin</h2>
+      <ol class="breadcrumb">
+         <li>
+            <a href="/dashboard">home</a>
+         </li>
+         <li>
+            <a href="/moods">Moods</a>
+         </li>
+         <li class="active">
+            <strong>Edit Mood</strong>
+         </li>
+      </ol>
+   </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+   <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+         <div class="ibox-title">
+            <h5 style="color:#1F7FAD;">Edit Mood</h5>
+         </div>
+         <div class="ibox-content">
+            <form class="form-horizontal" action="/edit-mood" id="myForm" method="post" enctype='multipart/form-data'>
+               <input type="hidden" value="<%= mood_id %>" name="mood_id">
+               <div class="form-group">
+                  <label class="col-lg-3 control-label">Name</label>
+                  <div class="col-lg-6">  <input type="text" required name="name" style="margin-left: 0px;" placeholder="Name" class="form-control" value="<%= mood.attributes.name %>">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-lg-3 control-label">Color</label>
+                  <div class="col-lg-6">  <input type="text" required name="color" style="margin-left: 0px;" placeholder="color" class="form-control"  value="<%= mood.attributes.color %>">
+                  </div>
+               </div>
+               <div class="form-group">
+                 <label class="col-lg-3">Emoji</label>
+                 <div class="col-lg-6">
+                  <img src="https://s3-eu-west-1.amazonaws.com/emotic-mood/Moods/<%= mood.attributes.emoji %>" style="float: left;" class="img-circle emoji" height="30" width="30">
+                 </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-lg-3 control-label">Update Emoji</label>
+                  <div class="col-lg-6">  <input type="file" required name="image" class="form-control">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-4">
+                     <button class="btn btn-sm btn-primary" type="button" onclick="checkForm();">Submit</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+      <%- include ../partials/footer %>
+   </div>
+</div>
+<%- include ../partials/script %>
+<script>
+function checkForm(){
+   var a=document.forms["myForm"]["name"].value;
+   var aval = a.replace(/\s/g, "");
+   var alen = aval.length;
+   var b=document.forms["myForm"]["color"].value;
+   var bval = b.replace(/\s/g, "");
+   var blen = bval.length;
+   if(alen==0 || blen==0)
+   {
+     alert("Please Fill All The Required Fields");            
+   }
+   else{
+      $('#myForm').submit();
+   }
+}
+</script>
+</body>
+</html>
